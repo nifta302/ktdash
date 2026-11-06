@@ -1,0 +1,34 @@
+name: Build IPA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: brew install xcodegen ldid
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build (без подписи)
+        run: |
+          xcodebuild -project KTDash.xcodeproj -scheme KTDash -configuration Release \
+            -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build
+
+      - name: Pack IPA
+        run: |
+          mkdir -p Payload
+          cp -R build/Build/Products/Release-iphoneos/KTDash.app Payload/
+          ldid -S Payload/KTDash.app/KTDash || true
+          zip -qry KTDash.ipa Payload
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: KTDash-ipa
+          path: KTDash.ipa
