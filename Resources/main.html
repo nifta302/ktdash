@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#050607">
+<title>KT Dash — iPhone 11</title>
+<style>
+:root{--pbg:#eceef1;--ptx:#13161a;--pmu:#5b626a;--pln:#cdd2d8;color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--pbg:#0b0c0e;--ptx:#eceef0;--pmu:#7c838b;--pln:#262a30;color-scheme:dark}}
+:root[data-theme="dark"]{--pbg:#0b0c0e;--ptx:#eceef0;--pmu:#7c838b;--pln:#262a30;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--pbg);scroll-padding-top:env(safe-area-inset-top,0px)}
+html.ph{padding:0;background:#000;overflow:hidden;height:100%}
+body{margin:0;background:var(--pbg);color:var(--ptx);font:14px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;padding:18px}
+html.ph body{padding:0;background:#000;height:100%;overflow:hidden}
+.w{max-width:980px;margin:0 auto}
+h1{font-size:16px;font-weight:600;margin:0 0 4px}.sub{color:var(--pmu);font-size:13px;margin:0 0 18px}
+html.ph .w>:not(#fit){display:none}html.ph .w{max-width:none}
+#fit{position:relative;width:100%;margin:14px 0 6px}
+html.ph #fit{position:fixed;inset:0;margin:0;width:auto}
+.ctl{margin-top:22px;display:grid;gap:10px;font-size:13px}html.ph .ctl{display:none}
+.ctl label{display:flex;align-items:center;gap:10px}.ctl input[type=range]{flex:1;min-width:0}
+.ctl button{font:inherit;color:var(--ptx);background:transparent;border:1px solid var(--pln);border-radius:6px;padding:7px 12px;cursor:pointer}
+.mu{color:var(--pmu)}
+#rot{display:none}
+@media(orientation:portrait){html.ph #rot{display:flex;position:fixed;inset:0;z-index:20;background:#000;color:#eceef0;align-items:center;justify-content:center;text-align:center;padding:30px;font-size:17px}}
+/* ---- экран iPhone 11: 896×414 pt, безопасные поля слева/справа 44, снизу 21 ---- */
+#st{position:absolute;left:0;top:0;width:896px;height:414px;transform-origin:0 0;background:#050607;overflow:hidden;color:#eceef0;font:14px/1 -apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;font-variant-numeric:tabular-nums;--ac:#f0a93f;--er:#ff4d52;--mu:#80868e;--ln:#262a30;--gc:#eceef0;--r:0;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
+html.pv #st{border-radius:41px;box-shadow:0 0 0 9px #14161a,0 0 0 10px #2d3137,0 26px 50px rgba(0,0,0,.45)}
+#nt,#hi{display:none}
+html.pv #nt{display:block;position:absolute;left:0;top:112px;width:30px;height:190px;background:#000;border-radius:0 18px 18px 0;z-index:9}
+html.pv #hi{display:block;position:absolute;bottom:8px;left:50%;width:140px;height:5px;margin-left:-70px;border-radius:3px;background:rgba(255,255,255,.5);z-index:9}
+#st .a{position:absolute;pointer-events:none}
+#st button,#st #od{pointer-events:auto}#st.ride button{pointer-events:none}
+@keyframes bl{50%{opacity:.3}}
+@keyframes up{from{transform:translateY(30%);opacity:0}}
+@keyframes dn{from{transform:translateY(-30%);opacity:0}}
+@keyframes ping{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(1.22)}}
+#bt{left:56px;top:22px;display:flex;align-items:center;gap:9px;font-size:24px;font-weight:500;transform-origin:0 0;transform:scale(calc(1 + var(--r)*.12))}
+#bt i{display:block;position:relative;width:40px;height:19px;border:2px solid #eceef0;border-radius:5px}
+#bt i::before{content:"";position:absolute;left:2px;top:2px;bottom:2px;width:calc((100% - 4px)*var(--s,70)/100);background:#eceef0;border-radius:2px}
+#bt i::after{content:"";position:absolute;right:-6px;top:4px;width:3px;height:7px;background:#eceef0;border-radius:0 2px 2px 0}
+#bt.lo i{border-color:var(--er)}#bt.lo i::before,#bt.lo i::after{background:var(--er)}#bt.lo{animation:bl 1s steps(2) infinite}
+#od{right:56px;top:22px;font-size:24px;font-weight:500;text-align:right;transform-origin:100% 0;transform:scale(calc(1 + var(--r)*.12))}
+#od span,#pw span{color:var(--mu);font-weight:400}
+.pn{top:84px;width:230px}#pl{left:56px}#pr{right:56px}
+.it{height:84px;padding-top:12px;border-top:1px solid var(--ln)}
+.it .l{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:9px}
+.it b{font-size:34px;font-weight:500}.it small{font-size:16px;color:var(--mu);margin-left:4px}
+#st button{display:block;width:100%;height:72px;margin:0 0 12px;padding:0;font:inherit;font-size:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.2;color:#eceef0;background:#0c0e10;border:1px solid #2e3238;border-radius:14px;transition:transform .12s,background .25s,color .25s}
+#st button:active{transform:scale(.97)}
+#st button.on{background:var(--ac);color:#0b0c0e;border-color:var(--ac)}
+#st button.er{border-color:var(--ac);color:var(--ac)}
+#st button.hold{background:#eceef0;color:#0b0c0e}
+#st button:disabled{filter:grayscale(1) brightness(.55)}
+#st button:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+#gg{left:268px;top:-4px;width:360px;height:360px;transform:scale(calc(.72 + var(--r)*.28))}
+#gg svg{position:absolute;left:0;top:0}
+#gg circle{fill:none;stroke-width:9}
+#tr{stroke:var(--ln)}#arc{stroke:var(--gc);transition:stroke .3s}
+#gg #nd{fill:var(--gc);stroke:#050607;stroke-width:3}
+#zn{fill:none;stroke:var(--ac);stroke-width:9;stroke-dasharray:3 5;opacity:.4;transition:opacity .4s}
+#tg line{stroke:var(--mu);transition:stroke .2s}#tg line.on{stroke:var(--gc)}
+#tg text{fill:var(--mu);font-size:15px;opacity:calc(.15 + var(--r)*.85)}
+#lm{stroke:var(--ac);stroke-width:3;transition:opacity .3s}
+#gg #pg{stroke:var(--ac);stroke-width:3;opacity:0;transform-origin:180px 180px}#gg #pg.go{animation:ping .7s ease-out}
+#num{left:0;width:360px;top:102px;text-align:center}
+#num b{display:block;font-size:136px;line-height:136px;font-weight:400;letter-spacing:-4px;color:var(--gc);transition:opacity .3s,color .3s}
+#num b span{display:inline-block;min-width:.58em}
+#num b span.u{animation:up .24s cubic-bezier(.2,.8,.2,1)}#num b span.d{animation:dn .24s cubic-bezier(.2,.8,.2,1)}
+#num i{display:block;margin-top:2px;font-style:normal;font-weight:600;font-size:18px;letter-spacing:.22em;text-transform:uppercase;color:var(--mu)}
+#gg #lki{left:148px;top:112px;width:64px;height:64px;color:var(--ac);opacity:0;transform:scale(.5);transition:opacity .35s,transform .5s cubic-bezier(.3,1.6,.5,1)}
+#shk{transform:translateY(-4px);transition:transform .45s .1s cubic-bezier(.3,1.6,.5,1)}
+#st.locked #shk{transform:none}#st.locked #lki{opacity:1;transform:none}#st.locked #num b{opacity:0}
+#pw{left:0;width:896px;text-align:center;top:calc(262px + var(--r)*34px);font-size:56px;font-weight:500;transform:scale(calc(.74 + var(--r)*.26));transform-origin:50% 0}
+#pw span{font-size:22px;margin-left:6px}#pw.ov b{color:var(--er)}
+#st.ov #arc,#st.ov #pw{animation:bl .5s steps(2) infinite}
+#bar{left:56px;right:56px;bottom:36px;height:6px;display:flex;gap:2px}
+#bar u{flex:1;background:var(--ln);text-decoration:none;transition:background .15s}
+#bar u.pk{background:var(--mu)}#bar u.on{background:#eceef0}#bar u.on.z1{background:var(--ac)}#bar u.on.z2,#bar.ov u.on{background:var(--er)}
+/* ---- паника и режим «на плате» ---- */
+#st #pb{position:absolute;left:56px;top:344px;width:118px;height:26px;margin:0;padding:0;font-size:12px;letter-spacing:.08em;color:var(--er);border:1px solid var(--er);border-radius:8px;background:transparent;pointer-events:auto;z-index:5}
+#st.panic #pl,#st.panic #pr,#st.panic #od{opacity:0!important;pointer-events:none}
+#st.panic #pb{display:none}
+#st #hit{position:absolute;left:300px;top:60px;width:300px;height:240px;display:none;z-index:4;pointer-events:auto;touch-action:manipulation;-webkit-touch-callout:none}
+#st.panic #hit{display:block}
+#st #pwb{position:absolute;left:268px;top:40px;width:360px;height:100px;display:none;z-index:6;background:#0b0c0e;border:1px solid var(--er);border-radius:14px;padding:12px;pointer-events:auto}
+#st #pwb.show{display:block}#st #pwb.shake{animation:shk .3s}
+@keyframes shk{25%,75%{transform:translateX(-6px)}50%{transform:translateX(6px)}}
+#st #pwb span{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:8px}
+#st #pwb input{box-sizing:border-box;width:236px;height:42px;font:inherit;font-size:22px;color:#eceef0;background:#050607;border:1px solid var(--ln);border-radius:8px;padding:0 12px;pointer-events:auto;user-select:text;-webkit-user-select:text}
+#st #pwb button{display:inline-block;width:88px;height:42px;margin:0 0 0 10px;font-size:15px;vertical-align:top;border-radius:8px}
+.live .ctl,.live .sub,.live h1{display:none}
+@media(prefers-reduced-motion:reduce){#st *,#st *::before{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>KT Dash для iPhone 11 — горизонтально, 896×414 pt</h1>
+<p class="sub">Рамка показывает вырез и безопасные поля (слева и справа по 44 pt, снизу 21 pt). Откроете страницу на самом iPhone — экран займёт весь дисплей без рамки.</p>
+<div id="fit"><div id="st">
+ <div id="nt"></div><div id="hi"></div>
+ <div class="a" id="bt"><i></i><span><b id="soc" style="font-weight:500">72</b>%</span></div>
+ <div class="a" id="od"><b id="trp" style="font-weight:500">12.6</b> <span>км</span></div>
+ <div class="a pn" id="pl">
+  <div class="it"><span class="l">Макс. скорость</span><b id="mx">0.0</b><small>км/ч</small></div>
+  <div class="it"><span class="l">Температура</span><b id="tp">41</b><small>°C</small></div>
+  <div class="it"><span class="l">Напряжение</span><b id="vl">49.8</b><small>В</small></div>
+ </div>
+ <div class="a pn" id="pr">
+  <button type="button" id="bl">Лимит 25</button>
+  <button type="button" id="bw" aria-pressed="false">Пеший ход</button>
+  <button type="button" id="bk">Блокировка</button>
+ </div>
+ <div class="a" id="gg">
+  <svg viewBox="0 0 360 360" width="360" height="360" role="img" aria-label="Шкала скорости"><g id="tg"></g>
+   <circle id="tr" cx="180" cy="180" r="130" transform="rotate(135 180 180)" stroke-dasharray="612.6 900"/>
+   <path id="zn" d=""/>
+   <circle id="arc" cx="180" cy="180" r="130" transform="rotate(135 180 180)" stroke-dasharray="0 900"/>
+   <line id="lm"/><circle id="pg" cx="180" cy="180" r="130"/><circle id="nd" r="9"/></svg>
+  <div class="a" id="num"><b id="v">0</b><i id="un">км/ч</i></div>
+  <svg id="lki" viewBox="0 0 24 24" role="img" aria-label="Заблокировано"><path id="shk" d="M7 11V8a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="5" y="11" width="14" height="10" rx="2" fill="currentColor"/></svg>
+ </div>
+ <div class="a" id="pw"><b id="w">0</b> <span>Вт</span></div>
+ <div class="a" id="bar" aria-hidden="true"></div>
+ <button type="button" id="pb" aria-pressed="false">Паника</button>
+ <div id="hit"></div>
+ <div id="pwb"><span id="pwl">пароль</span><input id="pwi" type="password" maxlength="16" autocomplete="off" autocapitalize="off" autocorrect="off"><button type="button" id="pwo">OK</button></div>
+</div></div>
+<div class="ctl">
+ <label><input type="checkbox" id="au" checked> Авто-демо: стоим, разгон, езда, торможение</label>
+ <label>Скорость <input type="range" id="sl" min="0" max="45" step="any" value="0" disabled> <output id="so">0</output> км/ч</label>
+ <label>Заряд <input type="range" id="sb" min="0" max="100" step="1" value="72"> <output id="sbo">72</output> %</label>
+ <div><button type="button" id="rb">Повторить запуск</button></div>
+ <div class="mu">Кнопки справа работают, пока стоите. Долгое нажатие на пробег сбрасывает пробег и максимум.</div>
+</div>
+</div>
+<div id="rot">Поверните iPhone горизонтально</div>
+<script>
+const LIVE=location.protocol==='http:';let D=null,dAt=0;const linkOK=()=>!!(D&&D.link&&performance.now()-dAt<2500);if(LIVE)document.documentElement.classList.add('live');
+const E=i=>document.getElementById(i),st=E('st'),fit=E('fit'),root=document.documentElement;
+const MAXV=45,MAXW=1500,OVW=1300,CA=612.6,NS=48,PANIC_W=250,PANIC_KMH=11,RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x)),sstep=(a,b,x)=>{const t=clamp((x-a)/(b-a),0,1);return t*t*(3-2*t)};
+const S={unl:0,lock:0,walk:0,k:0,kd:0,trip:12.6,vm:0,soc:72,panic:0};
+let R=0,BT=0,BN=0,PKW=0,PHD=0,PHI=false,PV=-1,last=performance.now(),T0=last,B0=RM?-1e6:last,TK=[];
+const LI=[...document.querySelectorAll('#pl .it')],RI=[...document.querySelectorAll('#pr button')];
+const PH=matchMedia('(pointer:coarse)').matches&&innerWidth<1000;root.classList.add(PH?'ph':'pv');
+function fitK(){let k,ox=0,oy=0;
+ if(PH){const W=innerWidth,H=innerHeight;k=Math.min(W/896,H/414);ox=(W-896*k)/2;oy=(H-414*k)/2}
+ else{k=Math.max(fit.clientWidth,300)/896;fit.style.height=(414*k)+'px'}
+ st.style.transform='translate('+ox+'px,'+oy+'px) scale('+k+')'}
+new ResizeObserver(fitK).observe(PH?root:fit);addEventListener('resize',fitK);fitK();
+(()=>{let g='';for(let i=0;i<=9;i++){const m=i%2==0,A=(135+i*30)*Math.PI/180,c=Math.cos(A),s=Math.sin(A),a=m?138:141,b=m?152:147;
+ g+='<line x1="'+(180+a*c)+'" y1="'+(180+a*s)+'" x2="'+(180+b*c)+'" y2="'+(180+b*s)+'" stroke-width="'+(m?3:1.8)+'"/>';
+ if(m)g+='<text x="'+(180+171*c)+'" y="'+(180+171*s)+'" text-anchor="middle" dominant-baseline="central">'+(i*5)+'</text>'}
+ E('tg').innerHTML=g;TK=[...E('tg').querySelectorAll('line')].map((l,i)=>({l,v:i*5}));
+ const LA=(135+25/MAXV*270)*Math.PI/180,EA=45*Math.PI/180,lm=E('lm');
+ lm.setAttribute('x1',180+122*Math.cos(LA));lm.setAttribute('y1',180+122*Math.sin(LA));lm.setAttribute('x2',180+153*Math.cos(LA));lm.setAttribute('y2',180+153*Math.sin(LA));
+ E('zn').setAttribute('d','M'+(180+130*Math.cos(LA))+' '+(180+130*Math.sin(LA))+' A130 130 0 0 1 '+(180+130*Math.cos(EA))+' '+(180+130*Math.sin(EA)))})();
+E('bar').innerHTML='<u></u>'.repeat(NS);const SG=[...E('bar').children];
+SG.forEach((e,i)=>{if(i>=29)e.classList.add('z2');else if(i>=19)e.classList.add('z1')});
+function setV(n){if(n===PV)return;const s=String(n),pv=PV<0?n:PV,p=String(pv).slice(-s.length).padStart(s.length,' '),c=n>pv?'u':'d';
+ E('v').innerHTML=[...s].map((ch,i)=>'<span'+(p[i]!==ch?' class="'+c+'"':'')+'>'+ch+'</span>').join('');PV=n}
+function ping(){const p=E('pg');p.classList.remove('go');void p.getBoundingClientRect();p.classList.add('go')}
+function sync(){const b=E('bl'),k=E('bk');
+ b.textContent=S.unl?'Без лимита':'Лимит 25';b.className=S.unl?'on':'';
+ k.textContent=S.lock?'Разблокировать':'Блокировка';k.className=S.lock?'er':'';
+ st.classList.toggle('locked',!!S.lock);E('lki').setAttribute('aria-hidden',S.lock?'false':'true');
+ b.disabled=E('bw').disabled=!!S.lock;
+ E('un').textContent=LIVE&&!linkOK()?'нет связи':LIVE&&S.panic&&D&&!D.tx?'кадры выкл':S.lock?'блок':S.walk?'пеший':S.unl?'без лимита':'км/ч';
+ const off=S.unl||S.lock;E('lm').style.opacity=off?0:1;E('zn').style.opacity=off?0:.4;
+ const t=E('bt');t.style.setProperty('--s',S.soc);t.classList.toggle('lo',S.soc<15);E('soc').textContent=S.soc}
+E('bl').onclick=()=>{if(!S.lock){S.unl^=1;sync();ping();if(LIVE)fetch('/set?unl='+S.unl).catch(()=>{})}};
+E('bk').onclick=()=>{if(LIVE){if(S.lock){openPw('unlock')}else{S.lock=1;S.walk=0;E('bw').classList.remove('hold');sync();ping();fetch('/set?lock=1').catch(()=>{})}return}
+S.lock^=1;S.walk=0;E('bw').classList.remove('hold');sync();ping()};
+const bw=E('bw'),wk=on=>{S.walk=on&&!S.lock?1:0;bw.classList.toggle('hold',!!S.walk);bw.setAttribute('aria-pressed',S.walk?'true':'false');sync();if(LIVE)fetch('/set?walk='+S.walk).catch(()=>{})};
+bw.addEventListener('pointerdown',e=>{bw.setPointerCapture(e.pointerId);wk(1)});
+['pointerup','pointercancel','blur'].forEach(n=>bw.addEventListener(n,()=>wk(0)));
+bw.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();if(!e.repeat)wk(1)}});
+bw.addEventListener('keyup',e=>{if(e.key===' '||e.key==='Enter')wk(0)});
+document.addEventListener('visibilitychange',()=>wk(0));
+E('au').onchange=()=>{E('sl').disabled=E('au').checked};
+E('sb').oninput=()=>{S.soc=+E('sb').value;E('sbo').textContent=S.soc;sync()};
+E('rb').onclick=()=>{B0=performance.now()};
+let lp;const od=E('od');
+od.addEventListener('pointerdown',()=>{lp=setTimeout(()=>{S.trip=0;S.vm=0;if(LIVE)fetch('/set?rst=1').catch(()=>{});od.style.color='#f0a93f';setTimeout(()=>od.style.color='',300)},800)});
+['pointerup','pointercancel','pointerleave'].forEach(n=>od.addEventListener(n,()=>clearTimeout(lp)));
+/* Выход из паники: 3 долгих + 3 коротких касания по спидометру, затем пароль. Пароль проверяет плата. */
+const SEQ='LLLSSS',hit=E('hit'),pwb=E('pwb'),pwi=E('pwi'),pwl=E('pwl'),DEMOPW=location.protocol!=='http:',PHs=193498376,hsh=s=>{let h=5381;for(const c of s)h=((h<<5)+h+c.charCodeAt(0))>>>0;return h};
+let gs='',gd=0,gtm,pwMode='panic';
+function gesReset(){gs='';gd=0;clearTimeout(gtm);pwb.classList.remove('show');pwi.value='';pwi.blur()}
+function bad(){pwb.classList.remove('shake');void pwb.offsetWidth;pwb.classList.add('shake')}
+function done(){S.panic=0;gesReset();sync();ping()}
+function openPw(m){pwMode=m;pwl.textContent=m==='unlock'?'PIN':'пароль';pwb.classList.add('show');pwi.value='';pwi.focus();clearTimeout(gtm);gtm=setTimeout(()=>pwb.classList.remove('show'),15000)}
+function tryExit(){const v=pwi.value;pwi.value='';
+ if(pwMode==='unlock'){fetch('/set?lock=0&pin='+encodeURIComponent(v)).then(r=>r.json()).then(j=>{if(!j.lock){S.lock=0;gesReset();sync();ping()}else bad()}).catch(bad);return}
+ fetch('/set?panic=0&pw='+encodeURIComponent(v)).then(r=>r.json()).then(j=>j.pn===0?done():bad()).catch(()=>{if(DEMOPW&&hsh(v)===PHs)done();else bad()})}
+E('pwo').onclick=tryExit;pwi.addEventListener('keydown',e=>{if(e.key==='Enter')tryExit()});
+hit.addEventListener('contextmenu',e=>e.preventDefault());
+hit.addEventListener('pointerdown',e=>{if(S.panic&&!pwb.classList.contains('show')){gd=performance.now();e.preventDefault()}});
+hit.addEventListener('pointercancel',()=>{gd=0});
+hit.addEventListener('pointerup',()=>{if(!S.panic||!gd||pwb.classList.contains('show'))return;const d=performance.now()-gd;gd=0;
+ clearTimeout(gtm);gtm=setTimeout(()=>{gs=''},5000);
+ const c=d>=600?'L':d<=350?'S':'';if(!c){gs='';return}
+ gs+=c;if(!SEQ.startsWith(gs)){gs=c===SEQ[0]?c:'';return}
+ if(navigator.vibrate)navigator.vibrate(12);
+ if(gs===SEQ){gs='';openPw('panic')}});
+E('pb').onclick=()=>{if(S.panic)return;S.panic=1;gesReset();sync();ping();fetch('/set?panic=1').catch(()=>{})};
+async function wl(){try{if(navigator.wakeLock)await navigator.wakeLock.request('screen')}catch(e){}}
+addEventListener('pointerdown',wl,{once:true});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')wl()});
+sync();
+function demo(t){const c=t%24,pk=S.unl?34:25;
+ if(c<3||c>=21)return 0;if(c<9)return pk*sstep(3,9,c);
+ if(c<16)return pk+3*Math.sin((c-9)/7*Math.PI*2);return pk*(1-sstep(16,21,c))}
+function render(now){
+ const k=S.kd,w0=LIVE?(linkOK()?Math.max(0,D.a*D.u):0):(k<.3?0:(40+k*14+k*k*.35)*(1+.04*Math.sin(now/300))),w=(!LIVE&&S.panic)?Math.min(w0,PANIC_W):w0,ov=LIVE?!!(linkOK()&&D.ov):w>OVW;
+ st.style.setProperty('--r',R.toFixed(3));st.classList.toggle('ride',R>.5);st.classList.toggle('ov',ov);st.classList.toggle('panic',!!S.panic);
+ LI.forEach((el,i)=>{const p=sstep(i*.1,.55+i*.1,R),n=sstep(.12+i*.1,.55+i*.1,BT);el.style.translate=(-(p+1-n)*330)+'px 0';el.style.opacity=n*(1-p)});
+ RI.forEach((el,i)=>{const p=sstep(i*.1,.55+i*.1,R),n=sstep(.12+i*.1,.55+i*.1,BT);el.style.translate=((p+1-n)*330)+'px 0';el.style.opacity=n*(1-p)});
+ const hi=!S.unl&&k>=24.9;if(hi&&!PHI&&BT>=1)ping();PHI=hi;
+ st.style.setProperty('--gc',ov?'#ff4d52':hi?'#f0a93f':'#eceef0');
+ const f=Math.min(k/MAXV,1),A=(135+f*270)*Math.PI/180;
+ E('arc').style.strokeDasharray=(f*CA).toFixed(1)+' 900';
+ E('nd').setAttribute('cx',180+130*Math.cos(A));E('nd').setAttribute('cy',180+130*Math.sin(A));
+ setV(Math.round(k));
+ TK.forEach(t=>{const on=k>=t.v-.01;if(t.on!==on){t.on=on;t.l.classList.toggle('on',on)}});
+ if(w>=PKW){PKW=w;PHD=45}else if(PHD>0)PHD--;else PKW=Math.max(w,PKW-8);
+ const x=Math.min(w/MAXW,1)*NS;if(Math.abs(x-BN)>.6)BN=Math.round(x);const pi=Math.min(Math.round(PKW/MAXW*NS),NS)-1;
+ SG.forEach((e,i)=>{e.classList.toggle('on',i<BN);e.classList.toggle('pk',i===pi&&i>=BN)});
+ E('bar').classList.toggle('ov',ov);E('pw').classList.toggle('ov',ov);
+ E('w').textContent=Math.round(w);E('trp').textContent=S.trip.toFixed(1);E('mx').textContent=S.vm.toFixed(1);
+ E('tp').textContent=LIVE?(linkOK()&&D.t?D.t:'—'):Math.round(41+w/150);E('vl').textContent=LIVE?(linkOK()?D.u.toFixed(1):'—'):(49.8-w/1000*1.5).toFixed(1)}
+function frame(now){const dt=Math.min((now-last)/1000,.1);last=now;
+ let g=LIVE?(linkOK()?D.kmh:0):(S.lock?0:S.walk?6:E('au').checked?demo((now-T0)/1000):+E('sl').value);
+ if(!LIVE){if(!S.unl)g=Math.min(g,25);if(S.panic)g=Math.min(g,PANIC_KMH)}
+ S.k+=(g-S.k)*(1-Math.exp(-dt*6));if(g==0&&S.k<.05)S.k=0;
+ if(!LIVE){S.trip+=S.k/3600*dt;S.vm=Math.max(S.vm,S.k)}
+ const rt=S.panic?1:(S.walk||S.lock||(LIVE&&!linkOK())?0:sstep(2,12,S.k));R+=(rt-R)*(1-Math.exp(-dt*4));
+ if(E('au').checked)E('sl').value=S.k;E('so').textContent=Math.round(S.k);
+ BT=clamp((now-B0)/1600,0,1);S.kd=S.k;if(BT<1){const q=BT<.5?BT*2:2-BT*2;S.kd=sstep(0,1,q)*MAXV*.9}
+ render(now);requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+if(LIVE){const poll=()=>fetch('/s').then(r=>r.json()).then(j=>{D=j;dAt=performance.now();S.unl=j.unl?1:0;S.lock=j.lock?1:0;S.panic=j.pn?1:0;S.soc=Math.round(j.soc);S.trip=j.trip;S.vm=j.vmax;sync()}).catch(()=>sync());
+ poll();setInterval(poll,400);setInterval(()=>{if(S.walk)fetch('/set?walk=1').catch(()=>{})},500)}
+</script>
+</body>
+</html>

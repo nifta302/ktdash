@@ -1,0 +1,32 @@
+name: KTDash
+options:
+  bundleIdPrefix: com.ktdash
+  deploymentTarget:
+    iOS: "14.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  KTDash:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+      - Resources
+    info:
+      path: Sources/Info.plist
+      properties:
+        CFBundleDisplayName: KT Dash
+        UILaunchScreen: {}
+        UIStatusBarHidden: true
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSBluetoothAlwaysUsageDescription: Связь с платой KT Dash по Bluetooth
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ktdash.app
+        TARGETED_DEVICE_FAMILY: "1"
